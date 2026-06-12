@@ -48,6 +48,7 @@ locals {
           control_plane_replicas = max(2, length(var.etcd_servers))
           cluster_domain_suffix  = var.cluster_domain_suffix
           cluster_dns_service_ip = cidrhost(var.service_cidr, 10)
+          cluster_dns_service_ipv6 = cidrhost(var.service_cidr_ipv6, 10)
         }
       ) if var.components.enable && var.components.coredns.enable
     },

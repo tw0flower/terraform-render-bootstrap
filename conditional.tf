@@ -28,7 +28,7 @@ locals {
         cilium_agent_image    = var.container_images["cilium_agent"]
         cilium_operator_image = var.container_images["cilium_operator"]
         pod_cidr              = var.pod_cidr
-        pod_cidr              = var.pod_cidr_ipv6
+        pod_cidr_ipv6         = var.pod_cidr_ipv6
         daemonset_tolerations = var.daemonset_tolerations
       }
     )

@@ -12,7 +12,9 @@ locals {
 
         etcd_servers = join(",", formatlist("https://%s:2379", var.etcd_servers))
         pod_cidr     = var.pod_cidr
+        pod_cidr_ipv6     = var.pod_cidr_ipv6
         service_cidr = var.service_cidr
+        service_cidr = var.service_cidr_ipv6
 
         service_account_issuer = var.service_account_issuer
         cloud_provider_flag    = var.cloud_provider == null ? "" : indent(4, local.cloud_provider_flag)

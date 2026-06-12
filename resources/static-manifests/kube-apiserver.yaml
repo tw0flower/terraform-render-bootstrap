@@ -40,7 +40,7 @@ spec:
     - --service-account-jwks-uri=${service_account_issuer}/openid/v1/jwks
     - --service-account-key-file=/etc/kubernetes/pki/service-account.pub
     - --service-account-signing-key-file=/etc/kubernetes/pki/service-account.key
-    - --service-cluster-ip-range=${service_cidr}
+    - --service-cluster-ip-range=${service_cidr},${service_cidr_ipv6}
     - --tls-cert-file=/etc/kubernetes/pki/apiserver.crt
     - --tls-private-key-file=/etc/kubernetes/pki/apiserver.key
     env:

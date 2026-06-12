@@ -31,6 +31,12 @@ variable "pod_cidr" {
   default     = "10.20.0.0/14"
 }
 
+variable "pod_cidr_ipv6" {
+  type        = string
+  description = "CIDR IPv6 range to assign Kubernetes pods"
+  default     = "2001:db8:20::/56"
+}
+
 variable "service_cidr" {
   type        = string
   description = <<EOD
@@ -38,6 +44,15 @@ CIDR IP range to assign Kubernetes services.
 The 1st IP will be reserved for kube_apiserver, the 10th IP will be reserved for kube-dns.
 EOD
   default     = "10.3.0.0/24"
+}
+
+variable "service_cidr_ipv6" {
+  type        = string
+  description = <<EOD
+CIDR IPv6 range to assign Kubernetes services.
+The 1st IP will be reserved for kube_apiserver, the 10th IP will be reserved for kube-dns.
+EOD
+  default     = "2001:db8:3::/64"
 }
 
 variable "container_images" {

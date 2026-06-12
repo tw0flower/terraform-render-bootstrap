@@ -11,7 +11,7 @@ locals {
         flannel_image         = var.container_images["flannel"]
         flannel_cni_image     = var.container_images["flannel_cni"]
         pod_cidr              = var.pod_cidr
-        pod_cidr_ipv6         = var.pid_cidr_ipv6
+        pod_cidr_ipv6         = var.pod_cidr_ipv6
         daemonset_tolerations = var.daemonset_tolerations
       }
     )

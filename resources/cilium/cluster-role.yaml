@@ -36,6 +36,11 @@ rules:
   - get
   - list
   - watch
+  # APIGateway
+  - create
+  - update
+  - delete
+  - patch
 - apiGroups:
   - ""
   resources:
@@ -44,6 +49,11 @@ rules:
   - get
   - list
   - watch
+  # GatewayAPI
+  - create
+  - update
+  - delete
+  - patch
 - apiGroups:
   - ""
   resources:
@@ -59,6 +69,8 @@ rules:
   - endpoints
   # to check apiserver connectivity
   - namespaces
+  # GatewayAPI
+  - secrets
   verbs:
   - get
   - list
@@ -112,6 +124,69 @@ rules:
   - create
   - get
   - update
+# GatewayAPI
+- apiGroups:
+  - gateway.networking.k8s.io
+  resources:
+  - gatewayclasses
+  - gateways
+  - tcproutes
+  - udproutes
+  - tlsroutes
+  - httproutes
+  - grpcroutes
+  - referencegrants
+  - referencepolicies
+  - backendtlspolicies
+  - listenersets
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - gateway.networking.k8s.io
+  resources:
+  - gatewayclasses
+  verbs:
+  - patch
+- apiGroups:
+  - gateway.networking.k8s.io
+  resources:
+  - gatewayclasses/status
+  - gateways/status
+  - httproutes/status
+  - grpcroutes/status
+  - tlsroutes/status
+  - backendtlspolicies/status
+  - tcproutes/status
+  - udproutes/status
+  - listenersets/status
+  verbs:
+  - update
+  - patch
+- apiGroups:
+  - cilium.io
+  resources:
+  - ciliumgatewayclassconfigs
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - cilium.io
+  resources:
+  - ciliumgatewayclassconfigs/status
+  verbs:
+  - update
+  - patch
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  verbs:
+  - get
+  - list
+  - watch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
